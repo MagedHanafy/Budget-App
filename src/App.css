@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+
+:root {
+  --primary-green: #00b300;
+  --primary-red: #ff3333;
+  --primary-border: 1px solid #e7e7e7;
+  --dark-gray: #78909c;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #cfd8dc;
+  color: #eceff1;
+}
+.container {
+  display: grid;
+  grid-template-columns: 0.7fr 1.2fr 0.2fr 1.2fr 0.7fr;
+  grid-template-rows: 0.4fr 0.6fr 0.4fr 2.4fr;
+}
+h3,
+h1 {
+  text-align: center;
+}
+header {
+  grid-column: 1 / -1;
+  font-size: 2.5rem;
+  padding-top: 2.5rem;
+  background-color: var(--dark-gray);
+}
+.balance-container {
+  margin-top: -1px;
+  padding-bottom: 1rem;
+  grid-row: 2/3;
+  grid-column: 1 / -1;
+  background-color: var(--dark-gray);
+  display: grid;
+  grid-template-columns: 0.7fr 1.2fr 0.2fr 1.2fr 0.7fr;
+  grid-template-rows: 1fr 0.6fr;
+}
+h1 {
+  grid-column: 1 / -1;
+  font-size: 4rem;
+  padding: 1.5rem 0;
+}
+
+.budget-results-income,
+.budget-results-expenses {
+  text-align: center;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.budget-results-income {
+  grid-column: 2;
+  background-color: var(--primary-green);
+}
+.budget-results-expenses {
+  grid-column: 4;
+  background-color: var(--primary-red);
+}
+.add-container {
+  grid-column: 1 / -1;
+  padding: 1.4rem;
+  border-bottom: var(--primary-border);
+  background-color: #b0bec5;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-description,
+.add-value {
+  border: var(--primary-border);
+  background-color: #fff;
+  font-size: 1.6rem;
+  padding: 12px 15px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+.add-description {
+  width: 400px;
+}
+.add-value {
+  width: 110px;
+}
+.add-btn {
+  background: none;
+  font-size: 3.6rem;
+  border: none;
+  color: #28b9b5;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.add-description:focus,
+.add-value:focus {
+  border: 1px solid #28b9b5;
+}
+.add-btn:active {
+  transform: translateY(2px);
+}
+h4 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.income-container h4 {
+  color: var(--primary-green);
+}
+.expenses-container h4 {
+  color: var(--primary-red);
+}
+.income-container {
+  grid-column: 2;
+}
+.expenses-container {
+  grid-column: 4;
+}
+.income-list,
+.expenses-list {
+  list-style: none;
+  font-size: 1.8rem;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+}
+.income-list li {
+  background-color: var(--primary-green);
+}
+
+.expenses-list li {
+  background-color: var(--primary-red);
+}
+.Value {
+  transition: transform 0.5s ease-in;
+}
+.Toastify {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.delete-btn {
+  padding-left: 1rem;
+  font-size: 1.8rem;
+  color: #ffffff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  display: none;
+}
+.delete-btn:active {
+  transform: translateY(2px);
+}
+
+li:hover .delete-btn {
+  display: inline-block;
+}
+.income-list li:hover .value {
+  transform: translateX(-2rem);
+}
+
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 50%;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.6fr 0.4fr 1.2fr 1.2fr;
+    gap: 0;
+  }
+  .balance-container {
+    display: flex;
+    flex-direction: column;
+  }
+  h1 {
+    padding: 1rem 0;
+  }
+  .budget-results-income,
+  .budget-results-expenses {
+    width: 50%;
+    margin: auto;
+  }
+  .budget-results-income {
+    margin-bottom: 1rem;
+  }
+  .income-container,
+  .expenses-container {
+    grid-column: 1;
+    width: 80%;
+    margin: auto;
+  }
+  .delete-btn {
+    display: inline-block;
+  }
+}
+@media only screen and (max-width: 700px) {
+  h3 {
+    font-size: 2rem;
+  }
+  .budget-results-income,
+  .budget-results-expenses {
+    width: 80%;
+    margin: auto;
+  }
+  .budget-results-income {
+    margin-bottom: 1rem;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .add-description {
+    width: 80%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .add-value {
+    width: 110px;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  .add-btn {
+    display: inline-block;
+  }
+}
